@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\User\AuthController as UserAuthController;
+
+
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\CaretakerController as AdminCaretakerController;
 use App\Http\Controllers\Admin\DieticianController as AdminDieticianController;
@@ -19,18 +23,27 @@ use App\Http\Controllers\Admin\MedicalController as AdminMedicalController;
 |
 */
 
+// Route::get('/',[UserAuthController::class, 'signin'])->name('signin');
+
+// Route::get('/admin', [AdminAuthController::class, 'login'])->name('login');
 Route::get('/', [AdminAuthController::class, 'login'])->name('login');
 
 Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
 
     Route::group(['prefix'=>'caretaker','as'=>'caretaker.'], function(){
     Route::get('/list', [AdminCaretakerController::class, 'list'])->name('list');
-    Route::get('/store', [AdminCaretakerController::class, 'store'])->name('store');
+    Route::get('/create', [AdminCaretakerController::class, 'create'])->name('create');
+    Route::post('/store', [AdminCaretakerController::class, 'store'])->name('store');
+    Route::get('/edit/{id}',[AdminCaretakerController::class,'edit'])->name('edit');
+    Route::post('update/{id}',[AdminCaretakerController::class,'update'])->name('update');
+    Route::get('/delete/{id}',[AdminCaretakerController::class,'delete'])->name('delete');
     });
 
     Route::group(['prefix'=>'dietician','as'=>'dietician.'], function(){
     Route::get('/list', [AdminDieticianController::class, 'list'])->name('list');
-    Route::get('/store', [AdminDieticianController::class, 'store'])->name('store');
+    Route::get('/create', [AdminDieticianController::class, 'create'])->name('create');
+    Route::post('/store',[AdminDieticianController::class,'store'])->name('store');
+
     });
 
 

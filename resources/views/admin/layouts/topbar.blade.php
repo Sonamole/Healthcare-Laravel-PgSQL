@@ -1,8 +1,8 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="/assets/images/logoadmin.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="/assets/images/logofavicon.png" alt="Logo"></a>
+            <a class="navbar-brand" href="./"><img src="/admin/assets/images/logoadmin.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img src="/admin/assets/images/logofavicon.png" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>

@@ -6,17 +6,17 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Caretaker</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="{{ route ('admin.caretaker.store')}}">Add Caretaker</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{ route ('admin.caretaker.create')}}">Add Caretaker</a></li>
                         <li><i class="fa fa-table"></i><a href="{{ route ('admin.caretaker.list')}}">Caretaker data</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children  dropdown">
+                {{-- <li class="menu-item-has-children  dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Hospital</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route ('admin.hospital.store')}}">Add hospital</a></li>
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route ('admin.hospital.list')}}">Hospital data</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 {{-- <li class="menu-item-has-children  dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Staff</a>
@@ -29,7 +29,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Dietician</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route ('admin.dietician.store')}}">Add Dietician</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route ('admin.dietician.create')}}">Add Dietician</a></li>
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route ('admin.dietician.list')}}">Dietician data</a></li>
                     </ul>
                 </li>

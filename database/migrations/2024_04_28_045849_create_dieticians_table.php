@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('dieticians', function (Blueprint $table) {
             $table->id();
+            $table->integer('login_id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
+            $table->string('address');
+            $table->string('location');
+            $table->text('qualification');
+            $table->text('certificate');
             $table->string('password');
             $table->timestamps();
         });
-        Admin::create(['name' => 'Admin','email' => 'admin@gmail.com','password'=>'admin']);
     }
 
     /**
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('dieticians');
     }
 };

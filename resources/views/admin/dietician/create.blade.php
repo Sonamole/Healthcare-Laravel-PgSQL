@@ -12,8 +12,8 @@
                                     <div class="card-body">
 
 
-                                        <form action="#" method="post" novalidate="novalidate">
-
+                                        <form action="{{ route('admin.dietician.store') }}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="form-group">
                                                 <label for="cc-payment" class="control-label mb-1">Name</label>
                                                 <input id="cc-payment" name="name" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
@@ -25,27 +25,26 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label mb-1">Address</label>
-                                                <input id="cc-number" name="address" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
+                                                <input id="cc-number" name="address" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Qualification</label>
-                                                        <input id="cc-exp" name="qualification" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="">
+                                                        <input id="cc-exp" name="qualification" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
 
-                                                    <div class="col-6">
-                                                        <label for="cc-exp" class="control-label mb-1">Type</label>
-                                                        <select name="type" id="selectLg" class="form-control-lg form-control">
-                                                            <option value="0">Please select</option>
-                                                            <option value="1">Homenurse</option>
-                                                            <option value="2">Babysitter</option>
 
-                                                        </select>
-                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="cc-exp" class="control-label mb-1">Location</label>
+                                                            <input id="cc-exp" name="location" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="">
+                                                            <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div> 
 
                                             </div>
                                             <div class="form-group">
