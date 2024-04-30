@@ -43,6 +43,9 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     Route::get('/list', [AdminDieticianController::class, 'list'])->name('list');
     Route::get('/create', [AdminDieticianController::class, 'create'])->name('create');
     Route::post('/store',[AdminDieticianController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[AdminDieticianController::class,'edit'])->name('edit');
+    Route::post('/update/{id}',[AdminDieticianController::class,'update'])->name('update');
+    Route::get('/delete/{id}',[AdminDieticianController::class,'delete'])->name('delete');
 
     });
 

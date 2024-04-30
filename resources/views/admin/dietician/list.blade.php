@@ -12,18 +12,31 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Location</th>
+                                            <th>Qualification</th>
+                                            <th>Certificate</th>
+                                            <th>Password</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($dieticians as $dietician)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
+                                            {{-- <td>{{ $dietician->login->category }}</td> --}}
+                                            <td>{{ $dietician->name }}</td>
+                                            <td>{{ $dietician->email }} </td>
+                                            <td>{{ $dietician->address }}</td>
+                                            <td>{{ $dietician->location  }}</td>
+                                            <td>{{ $dietician->qualification }}</td>
+                                            <td>{{ $dietician->certificate }}</td>
+                                            <td>{{ $dietician->password }}</td>
+                                            <td><button class="btn btn-secondary"><a href="{{ route('admin.dietician.edit',$dietician->id) }}">Edit</a></button></td>
+                                            <td><button class="btn btn-danger"><a href="{{ route('admin.dietician.delete',$dietician->id) }}">Delete</a></button></td>
                                         </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>

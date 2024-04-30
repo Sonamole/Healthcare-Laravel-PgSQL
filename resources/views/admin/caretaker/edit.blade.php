@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label mb-1">Choose Certificate</label>
-                                                <input id="cc-number" name="certificate" type="file" class="form-control cc-number identified visa" value="{{ asset('certificate_caretaker/'.$certificate)}}" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
+                                                <input id="cc-number" name="certificate" type="file" class="form-control cc-number identified visa" value="{{ asset('admin/certificate_caretaker/'.$certificate)}}" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
                                             <div>

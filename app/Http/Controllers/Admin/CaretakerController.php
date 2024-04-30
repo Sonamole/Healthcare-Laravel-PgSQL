@@ -69,9 +69,9 @@ class CaretakerController extends Controller
         if ($request->hasFile('certificate')) {
             $certificate = $request->file('certificate');
             $certifcate = time() . '.' . $certificate->getClientOriginalExtension();
-            $certificate->move(public_path('certificate_caretaker'), $certifcate);
+            $certificate->move(public_path('admin/certificate_caretaker'), $certifcate);
             if ($caretaker->certificate) {
-                Storage::delete(public_path('certificate_caretaker'), $certifcate);
+                Storage::delete(public_path('admin/certificate_caretaker'), $certifcate);
             }
             $caretaker->certificate = $certifcate;
         }
