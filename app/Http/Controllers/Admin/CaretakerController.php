@@ -32,7 +32,7 @@ class CaretakerController extends Controller
             if ($request->hasFile('certificate')) { // Corrected typo
                 $certificate = $request->file('certificate'); // Corrected variable name
                 $certifcate = time() . '.' . $certificate->getClientOriginalExtension(); // Corrected variable name
-                $certificate->move(public_path('certificate_caretaker'), $certifcate); // Corrected variable name
+                $certificate->move(public_path('admin/certificate_caretaker'), $certifcate); // Corrected variable name
             }
             // dd($request);
 

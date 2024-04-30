@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Dietician;
 use App\Models\Login;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DieticianController extends Controller
 {
@@ -17,52 +19,47 @@ class DieticianController extends Controller
 
         return view('admin.dietician.create');
     }
-
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         try {
             $request->validate([
-                'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required',
-                'certificate' => 'required|file',
+                'email' => 'required',
+                'certificate' => 'required',
             ]);
 
-            // Move certificate file to designated directory
-            if ($request->hasFile('certificate')) {
-                $certificate = $request->file('certificate');
-                $filename = time() . '.' . $certificate->getClientOriginalExtension();
-                $certificate->move(public_path('dietician_certificate'), $filename);
+            $certifcate = null; 
+
+            if ($request->hasFile('certificate')) { // Corrected typo
+                $certificate = $request->file('certificate'); // Corrected variable name
+                $certifcate = time() . '.' . $certificate->getClientOriginalExtension(); // Corrected variable name
+                $certificate->move(public_path('admin/dietician_certificate'), $certifcate); // Corrected variable name
             }
 
-            // Create login record
+
             $login = Login::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'category' => 'category',
+                'category' => 'dietician',
                 'password' => $request->password,
-                'caretaker_id' => '1',
             ]);
 
-            // Retrieve the ID of the newly created login record
             $loginId = $login->id;
 
-            // Insert into the Dietician table
             Dietician::create([
-                'login_id' => $loginId,
-                'name' => $request->name,
-                'email' => $request->email,
-                'address' => $request->address,
-                'location' => $request->location,
-                'qualification' => $request->qualification,
-                'certificate' => $filename
-            ]);
+                            'login_id' => $loginId,
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'address' => $request->address,
+                            'location' => $request->location,
+                            'qualification' => $request->qualification,
+                            'certificate' =>$certifcate,
+                            'password' => $request->password,
+                        ]);
 
             return redirect()->route('admin.dietician.list');
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return back()->withInput()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
-
 
  }

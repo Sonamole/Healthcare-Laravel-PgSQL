@@ -42,7 +42,7 @@
                             <label>Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-                        <div class="checkbox">
+                        {{-- <div class="checkbox">
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
@@ -50,7 +50,7 @@
                                 <a href="#">Forgotten Password?</a>
                             </label>
 
-                        </div>
+                        </div> --}}
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
 
                         <a href="{{ route('admin.caretaker.list') }}">Home page</a>

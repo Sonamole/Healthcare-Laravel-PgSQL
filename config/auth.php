@@ -36,16 +36,33 @@ return [
     */
 
 
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+    //     'admin' => [
+    //         'driver' => 'session',
+    //         'provider' => 'admins',
+    //     ],
+    // ],
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'logins',
+        ],
+
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'logins',
+        ],
+
+        'dietician' => [
+            'driver' => 'session',
+            'provider' => 'logins',
         ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -63,16 +80,23 @@ return [
     |
     */
 
+    // 'providers' => [
+    //     'users' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Models\User::class,
+    //     ],
+    //     'admins' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Models\Admin::class,
+    //     ],
+    // ],
     'providers' => [
-        'users' => [
+        'logins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\Login::class,
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

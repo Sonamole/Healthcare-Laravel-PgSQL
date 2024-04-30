@@ -13,6 +13,6 @@ class Login extends Model
       'email',
       'category',
       'password',
-      'caretaker_id',
+      
     ];
 }
